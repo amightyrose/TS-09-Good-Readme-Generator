@@ -1,19 +1,30 @@
+const util = require('util');
+const fs = require('fs');
 const promptUser = require('./utils/promptUser');
 const generateMarkdown = require('./utils/generateMarkdown');
-const writeFileAsync = require('./utils/writeFileAsync');
+const writeFileAsync = util.promisify(fs.writeFile);
 
 
 async function init() {
 
-    const answers = await promptUser();
+	try {
 
-	console.log(answers);
+		const answers = await promptUser();
 
-	const md = generateMarkdown(answers);
+		console.log(answers);
 
-	console.log(md);
+		const md = generateMarkdown(answers);
 
-	await writeFileAsync("./output/README.md", md)
+		console.log(md);
+
+		await writeFileAsync("./output/README.md", md)
+
+		console.log("README.md successfully generated.");
+
+	}
+	catch(err) {
+		console.log(`The following error was encountered: ${err}`);
+	}
 
 }
 
