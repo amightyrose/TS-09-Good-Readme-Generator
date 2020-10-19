@@ -1,3 +1,4 @@
+// Object containing license names and badge URLs
 const badges = {
 		"Apache License 2.0": "![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)",
 		"GNU General Public License v3.0": "![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)",
@@ -14,7 +15,7 @@ const badges = {
 		"The Unlicense": "![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)"
 }
 
-// function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
   return `
 # ${data.title}
@@ -63,12 +64,11 @@ Gitlab: https://github.com/${data.githubusername}
 
 Email: [${data.email}](mailto:${data.email})
 
+
 ## License
 This project is licensed under the ${data.license}.
-
 `;
 }
-
 
 
 module.exports = generateMarkdown;
