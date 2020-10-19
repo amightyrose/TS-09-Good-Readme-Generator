@@ -1,6 +1,7 @@
 const util = require('util');
 const fs = require('fs');
 const showWelcome = require('./utils/showWelcome.js')
+const continuePrompt = require('./utils/continuePrompt')
 const promptUser = require('./utils/promptUser');
 const generateMarkdown = require('./utils/generateMarkdown');
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -10,13 +11,11 @@ async function init() {
 
 	try {
 
-		const continuePrompt = await showWelcome();
+		showWelcome();
 
-		if (!continuePrompt.continue) {return}
+		if (!(await continuePrompt()).continue) {return};
 
 		const answers = await promptUser();
-
-		console.log(answers);
 
 		const md = generateMarkdown(answers);
 
