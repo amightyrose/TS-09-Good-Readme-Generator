@@ -12,12 +12,12 @@ const arrQuestions = [
 	message: "Enter a description for your project:"
 	},
 	{
-	type: "input",
+	type: "editor",
 	name: "installation",
 	message: "Enter the installation instructions for the application: "
 	},
 	{
-	type: "input",
+	type: "editor",
 	name: "usage",
 	message: "Enter usage instructions for the application:"
 	},
