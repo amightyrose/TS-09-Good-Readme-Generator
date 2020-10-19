@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/timsilby/TS-09-Good-Readme-Generator#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "inquirer": "^7.3.3"
   }
 }
