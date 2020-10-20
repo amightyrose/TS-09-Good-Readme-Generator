@@ -1,7 +1,6 @@
 const util = require('util');
 const fs = require('fs');
-const showWelcome = require('./utils/showWelcome.js')
-const continuePrompt = require('./utils/continuePrompt')
+const userDialogs = require('./utils/userDialogs.js')
 const promptUser = require('./utils/promptUser');
 const generateMarkdown = require('./utils/generateMarkdown');
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -11,19 +10,21 @@ async function init() {
 
 	try {
 
-		showWelcome();
+		userDialogs.showWelcome();
 
-		if (!(await continuePrompt()).continue) {return};
+		if (!(await userDialogs.continuePrompt()).continue) {return};
 
 		const answers = await promptUser();
 
 		const md = generateMarkdown(answers);
 
-		console.log(md);
+		userDialogs.previewMD(md);
+
+		if (!(await userDialogs.continuePrompt()).continue) {return};
 
 		await writeFileAsync("./output/README.md", md)
 
-		console.log("README.md successfully generated.");
+		userDialogs.showSuccessMsg();
 
 	}
 	catch(err) {
