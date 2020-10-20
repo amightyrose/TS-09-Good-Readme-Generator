@@ -47,7 +47,7 @@ const arrQuestions = [
 	message: "Enter contribution guidelines for your project:"
 	},
 	{
-	type: "input",
+	type: "editor",
 	name: "test",
 	message: "Enter instructions for testing your application:"
 	},
