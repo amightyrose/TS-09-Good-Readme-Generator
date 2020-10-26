@@ -54,7 +54,7 @@ If you'd like to see an example of a generated README file, here's one we create
 ## Questions
 Questions? Comments? Suggestions? Please get in touch.
 
-Gitlab: https://github.com/timsilby
+GitHub: https://github.com/timsilby
 
 Email: [tim.silby@gmail.com](mailto:tim.silby@gmail.com)
 
